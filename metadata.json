@@ -1,0 +1,6 @@
+{
+  "name": "Urban Yatras",
+  "description": "Premium curated Indian voyages, customized AI-guided travel itineraries, and adventure planning by Urban Yatras. Explore More. Live More.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

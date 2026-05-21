@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #f27a21;
+  --color-brand-navy: #1b2e3c;
+  --color-brand-navy-light: #2b4254;
+  --color-brand-charcoal: #12212c;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
