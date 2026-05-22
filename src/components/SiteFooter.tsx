@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { mainNav, siteConfig } from "@/lib/site";
+import { footerNav, siteConfig } from "@/lib/site";
 
 export default function SiteFooter() {
   return (
     <footer className="bg-[#12212c] border-t border-slate-800 text-slate-400 py-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 space-y-6">
         <div className="flex flex-wrap justify-center gap-6 text-gray-300 font-bold uppercase tracking-wider text-[11px]">
-          {mainNav.map((item) => (
+          {footerNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}

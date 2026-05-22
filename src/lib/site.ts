@@ -35,5 +35,12 @@ export const mainNav = [
   { href: "/about", label: "Our Story" },
   { href: "/payment", label: "Payments" },
   { href: "/contact", label: "Contact" },
-
+];
+export const footerNav = [
+  { href: "/", label: "Indian Voyages" },
+  { href: "/about", label: "Our Story" },
+  { href: "/payment", label: "Payments" },
+  { href: "/contact", label: "Contact" },
+  { href: "/terms", label: "Terms" },
+  { href: "/refund", label: "Refunds" },
 ];
