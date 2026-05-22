@@ -35,5 +35,5 @@ export const mainNav = [
   { href: "/about", label: "Our Story" },
   { href: "/payment", label: "Payments" },
   { href: "/contact", label: "Contact" },
-  { href: "/terms", label: "Terms" },
+
 ];

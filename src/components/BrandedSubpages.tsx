@@ -16,7 +16,7 @@ import {
 import { siteConfig } from "@/lib/site";
 
 interface SubpageProps {
-  currentView: "about" | "contact" | "payment" | "terms";
+  currentView: "about" | "contact" | "payment" | "terms" | "refund";
 }
 
 export default function BrandedSubpages({ currentView }: SubpageProps) {
@@ -426,61 +426,234 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                 Regulatory Parameters
               </span>
               <h1 className="font-sans font-black text-2xl md:text-3xl text-[#1b2e3c] mt-4">
-                Terms and Conditions of Travel Layouts
+                Terms and Conditions
               </h1>
               <p className="text-gray-450 text-xs mt-1 text-gray-450">Last Revised: May 2026</p>
             </div>
 
-            <div className="space-y-6 text-[#1b2e3c]/90 text-xs leading-relaxed font-sans font-medium border-t border-gray-100 pt-6">
+            <div className="space-y-8 text-[#1b2e3c]/90 text-xs leading-relaxed font-sans font-medium border-t border-gray-100 pt-8">
               
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
                   <FileCheck className="w-4 h-4 text-[#f27a21]" />
-                  <span>1. Agreement & Platform Intent</span>
+                  <span>1. Booking Process</span>
                 </h3>
                 <p>
-                  By accessing the itineraries compiled by **Urban Yatras**, you agree to these Terms. All schedules, weather assumptions, and transit routes are designed leveraging server-side models representing cultural best practices. Though highly accurate, the ultimate on-ground execution stays at the user's personal discretion.
+                  Welcome to **Urban Yatras**. By booking any tour, package, transport, or travel-related service with us, you agree to these Terms & Conditions.
+                </p>
+                <p>
+                  Upon receiving your travel inquiry or booking request, our team will assist you in creating a personalized and comfortable travel experience based on your preferences, budget, and interests. Tour plans, quotations, and booking confirmations are generally shared within 24 to 72 hours, depending on the complexity of the itinerary and service availability.
                 </p>
               </div>
 
-              <div className="space-y-2">
-                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
-                  <CircleDollarSign className="w-4 h-4 text-[#f27a21]" />
-                  <span>2. Payment, Clearances & Verification</span>
-                </h3>
-                <p>
-                  Vouchers and travel booking assets are only authorized once direct bank transfers clearing the total package amount are verified against our declared bank details, or standard **UPI ID** transfers to **{siteConfig.bank.upi}** output valid confirmation telemetry. Urban Yatras reserves the absolute right to freeze or suspend dynamic reservations if balance settlement failures occur.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
-                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
-                  <span>3. Cancellations & Refund Metrics</span>
-                </h3>
-                <p>
-                  We coordinate with luxury heritage partners across India. Cancellations received more than 15 calendar days before active voyage departure are granted a ninety percent (90%) total refund. Cancellations triggered between 7 to 14 days before journey slot are subject to fifty percent (50%) refund. No monetary refunds can be cleared for local cancel requests initiated within 6 days of departure.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-[#f27a21]" />
-                  <span>4. High-Altitude and Regional Advisory</span>
-                </h3>
-                <p>
-                  Voyages focusing on Ladakh or Kashmir might cross high elevations exceeding 11,000 feet. Travelers agree to self-regulate respiratory health, secure adequate physical checks, and follow mandatory acclimatization advice (e.g., resting for the first 24 hours in Leh city) before attempting heavy routes.
-                </p>
-              </div>
-
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
                   <BadgeInfo className="w-4 h-4 text-[#f27a21]" />
-                  <span>5. Advisory Jurisdiction</span>
+                  <span>2. Booking Timeline</span>
                 </h3>
                 <p>
-                  Any legal claims or procedural disputes arising under these Indian Voyage itineraries will belong under the exclusive municipal court authority applicable to our registered office location in Greater Noida West, Uttar Pradesh.
+                  To ensure better availability of hotels, transportation, and other travel services, we recommend confirming your bookings at least **30 days prior** to your planned travel date. Last-minute bookings are subject to availability and may result in higher costs.
                 </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <CircleDollarSign className="w-4 h-4 text-[#f27a21]" />
+                  <span>3. Payment Policy</span>
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-slate-50 p-4 rounded-xl border border-gray-100">
+                    <p className="font-bold mb-2 text-[#f27a21]">Domestic Tour Packages (Excluding Andaman)</p>
+                    <ul className="list-disc pl-4 space-y-1">
+                      <li>40% of the total package cost at the time of booking confirmation.</li>
+                      <li>30% of the package cost after receiving all booking confirmations.</li>
+                      <li>Remaining 30% payable before or at the beginning of the trip.</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-gray-100">
+                    <p className="font-bold mb-2 text-[#f27a21]">Special Hotel Selection Packages</p>
+                    <ul className="list-disc pl-4 space-y-1">
+                      <li>70% advance payment is required to confirm the bookings.</li>
+                      <li>Remaining 30% must be paid before the commencement of the trip.</li>
+                    </ul>
+                  </div>
+                  <p>
+                    **Flight / Train / Bus Bookings:** Full payment is required for airline tickets and certain transport bookings to secure reservations. A non-refundable booking amount may apply for hotels, transport, or special travel arrangements.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
+                  <span>4. Payment Deadlines</span>
+                </h3>
+                <p>
+                  All payments must be completed within the timelines communicated during the booking process. Failure to make payments by the due date may result in automatic cancellation of the booking without prior notice. Urban Yatras shall not be responsible for any loss, cancellation charges, or fare differences arising due to delayed or incomplete payments.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <FileCheck className="w-4 h-4 text-[#f27a21]" />
+                  <span>5. Travel Documents & Responsibilities</span>
+                </h3>
+                <p>
+                  Customers are responsible for ensuring that they carry valid government-issued identification, travel documents, tickets, permits, and any other required documents during the journey. Urban Yatras shall not be responsible for any issues arising due to invalid, missing, or incorrect documents.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <BadgeInfo className="w-4 h-4 text-[#f27a21]" />
+                  <span>6. Travel Insurance</span>
+                </h3>
+                <p>
+                  Our tour packages do not include travel insurance unless explicitly mentioned. We strongly recommend purchasing comprehensive travel insurance to protect against trip cancellations, medical emergencies, baggage loss, accidents, delays, or unforeseen travel disruptions.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
+                  <span>7. Refund & Unused Services</span>
+                </h3>
+                <p>
+                  No refunds or exchanges will be provided for any unused services, missed sightseeing, skipped meals, or partially utilized tour components after the trip has commenced. Refunds, where applicable, will be processed according to our Cancellation & Refund Policy.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <Building2 className="w-4 h-4 text-[#f27a21]" />
+                  <span>8. Festive Season & Peak Period Policy</span>
+                </h3>
+                <p>
+                  Bookings made during Christmas, New Year, long weekends, festive periods, or peak travel seasons may require higher advance payments and are generally subject to strict non-refundable policies. cancellations may attract 100% cancellation charges.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-[#f27a21]" />
+                  <span>9. Changes to Itinerary</span>
+                </h3>
+                <p>
+                  Urban Yatras reserves the right to make reasonable modifications to the itinerary, hotels, transportation, sightseeing schedules, or travel arrangements due to weather conditions, operational reasons, supplier issues, natural disasters, government restrictions, or unforeseen circumstances beyond our control.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
+                  <span>10. Limitation of Liability</span>
+                </h3>
+                <p>
+                  Urban Yatras acts only as a travel organizer and intermediary between customers and service providers such as hotels, airlines, transport operators, and local vendors. We shall not be liable for delays, accidents, injuries, baggage loss, weather disruptions, strikes, natural calamities, government actions, or failures caused by third-party service providers.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <FileCheck className="w-4 h-4 text-[#f27a21]" />
+                  <span>11. Acceptance of Terms</span>
+                </h3>
+                <p>
+                  By confirming a booking with **Urban Yatras**, the customer acknowledges that they have read, understood, and agreed to these Terms & Conditions as well as the applicable Cancellation & Refund Policy.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* 5. REFUND POLICY PAGE */}
+        {currentView === "refund" && (
+          <div className="bg-white rounded-3xl border border-gray-150 shadow-sm p-6 md:p-10 animate-fadeIn space-y-8 select-text">
+            <div>
+              <span className="bg-[#1b2e3c] text-white text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full">
+                Cancellation Policy
+              </span>
+              <h1 className="font-sans font-black text-2xl md:text-3xl text-[#1b2e3c] mt-4">
+                Refund and Cancellation
+              </h1>
+              <p className="text-gray-450 text-xs mt-1 text-gray-450">Last Revised: May 2026</p>
+            </div>
+
+            <div className="space-y-8 text-[#1b2e3c]/90 text-xs leading-relaxed font-sans font-medium border-t border-gray-100 pt-8">
+              
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
+                  <span>1. Cancellation by Customer</span>
+                </h3>
+                <p>
+                  Customers may request cancellation of their booking by contacting our customer support team or by emailing us at **{siteConfig.email}**.
+                </p>
+                <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 space-y-4">
+                  <p className="font-bold text-[#1b2e3c] uppercase tracking-tight text-[10px]">Cancellation Charges Breakdown:</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">Token Amount</p>
+                      <p>Non-refundable. Adjusted against future booking within 365 days.</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">45 Days or More</p>
+                      <p>70% Refund | 30% Cancellation Fee</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">30 Days Before</p>
+                      <p>50% Refund | 50% Cancellation Fee</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">15 Days Before</p>
+                      <p>30% Refund | 70% Cancellation Fee</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">Within 7 Days</p>
+                      <p>No refund will be applicable.</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <p className="font-bold text-[#f27a21]">Peak Season</p>
+                      <p>No refunds applicable during festive/long weekends.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-[#f27a21]" />
+                  <span>2. Cancellation by Urban Yatras</span>
+                </h3>
+                <p>
+                  In rare situations where Urban Yatras is unable to operate a confirmed trip due to unavoidable circumstances, operational issues, or supplier unavailability, we will offer a suitable alternative arrangement or a full refund for the affected services.
+                </p>
+                <p>
+                  **Transportation:** For Tatkal train bookings, if the ticket remains unconfirmed, the applicable train booking amount will be refunded.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <CircleDollarSign className="w-4 h-4 text-[#f27a21]" />
+                  <span>3. Refund Policy</span>
+                </h3>
+                <p>
+                  All eligible refunds will be processed after verification and approval. Refunds are generally processed within **15 to 45 working days** from the date of approval. Please note that the time taken for the refunded amount to reflect in your account may vary depending on your bank or payment method.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
+                  <BadgeInfo className="w-4 h-4 text-[#f27a21]" />
+                  <span>4. Important Notes</span>
+                </h3>
+                <ul className="list-disc pl-4 space-y-2">
+                  <li>Refunds, if any, will be processed through the original mode of payment.</li>
+                  <li>Convenience fees, payment gateway charges, and taxes (if applicable) may be non-refundable.</li>
+                  <li>Urban Yatras reserves the right to amend this policy at any time without prior notice.</li>
+                </ul>
               </div>
 
             </div>
