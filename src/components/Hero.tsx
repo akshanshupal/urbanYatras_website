@@ -228,7 +228,7 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="e.g. Akshanshu Pal"
+                    placeholder="Traveller Name"
                     className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f27a21] focus:bg-white font-bold transition-all text-[#1b2e3c]"
                   />
                 </div>
