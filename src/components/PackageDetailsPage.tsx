@@ -374,7 +374,7 @@ export default function PackageDetailsPage({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Akshanshu Pal"
+                    placeholder="Traveller Name"
                     value={enquiryName}
                     onChange={(e) => setEnquiryName(e.target.value)}
                     className="w-full bg-gray-50 border border-gray-200 py-2.5 px-3 rounded-xl text-xs font-bold text-[#1b2e3c] focus:outline-none focus:ring-1 focus:ring-[#f27a21]"
