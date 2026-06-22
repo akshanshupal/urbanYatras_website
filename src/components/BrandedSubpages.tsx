@@ -5,12 +5,10 @@
 
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
-import upiQrImage from "@/assets/images/UPI.png";
-import { 
-  Building2, Landmark, QrCode, PhoneCall, Mail, MapPin, 
+import {
+  Building2, School, Landmark, QrCode, PhoneCall, Mail, MapPin,
   Send, Sparkles, CheckCircle2, ShieldAlert, BadgeInfo, FileCheck, CircleDollarSign
 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
@@ -20,7 +18,7 @@ interface SubpageProps {
 }
 
 export default function BrandedSubpages({ currentView }: SubpageProps) {
-  
+
   // States for Contact form
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
@@ -28,24 +26,65 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
   const [destination, setDestination] = useState("Kashmir Valley");
   const [message, setMessage] = useState("");
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactSubmitting, setContactSubmitting] = useState(false);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullname.trim() || !email.trim()) return;
-    setContactSubmitted(true);
-    setTimeout(() => {
-      // Clear fields
-      setFullname("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-    }, 4000);
+    if (!fullname.trim() || !email.trim() || !phone.trim()) {
+      alert("Please enter your full name, email, and phone number.");
+      return;
+    }
+
+    try {
+      setContactSubmitting(true);
+      const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:1333").replace(/\/+$/, "");
+      const pageUrl = window.location.href;
+      const url = new URL(pageUrl);
+      const meta = {
+        referrer: document.referrer || "",
+        userAgent: navigator.userAgent || "",
+        utm: Object.fromEntries(url.searchParams.entries()),
+      };
+
+      const response = await fetch(`${apiBase}/api/enquiry`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          fullName: fullname.trim(),
+          email: email.trim(),
+          mobile: phone.trim(),
+          destination: destination.trim(),
+          message: message.trim(),
+          source: "contact-page",
+          pageUrl,
+          meta,
+        }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        throw new Error(text || "Failed to submit enquiry");
+      }
+
+      setContactSubmitted(true);
+      setTimeout(() => {
+        setFullname("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+      }, 4000);
+    } catch (err) {
+      console.error("Enquiry submit error:", err);
+      alert("Unable to submit enquiry right now. Please try again.");
+    } finally {
+      setContactSubmitting(false);
+    }
   };
 
   return (
     <div className="bg-slate-50 min-h-screen py-10 selection:bg-orange-100">
       <div className="max-w-7xl mx-auto px-4">
-        
+
         {/* Back Link Breadcrumb */}
         <div className="mb-6">
           <Link
@@ -64,7 +103,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
               <div className="absolute right-0 bottom-0 opacity-10 translate-y-6 translate-x-6 pointer-events-none">
                 <Sparkles className="w-96 h-96 text-orange-400" />
               </div>
-              
+
               <div className="max-w-3xl">
                 <span className="bg-[#f27a21] text-white text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full">
                   Who We Are
@@ -156,7 +195,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
               {/* Bank Details vs QR Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-10 pt-8 border-t border-gray-150">
-                
+
                 {/* Bank details - 7 Columns */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="flex items-center space-x-2 text-[#1b2e3c] font-bold block mb-3 text-xs uppercase tracking-wider">
@@ -219,17 +258,35 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                     <div className="flex items-center justify-center mx-auto mb-4 bg-white/10 p-2.5 rounded-full w-12 h-12 text-[#f27a21]">
                       <QrCode className="w-6 h-6 animate-pulse" />
                     </div>
-                    
+
                     <h4 className="text-sm font-black uppercase tracking-widest mb-1 text-[#f27a21]">G-Pay / BHIM UPI Scan</h4>
                     <p className="text-[10px] text-gray-300 mb-6">Scan using any standard Indian bank interface</p>
 
-                    <div className="bg-white p-3 rounded-2xl shadow-xl border-4 border-[#f27a21] mx-auto w-[260px] max-w-full">
-                      <Image
-                        src={upiQrImage}
-                        alt="Urban Yatras UPI QR Code"
-                        className="w-full h-auto rounded-xl"
-                        priority
-                      />
+                    {/* Styled Mock QR Box with custom aesthetics */}
+                    <div className="bg-white p-4 rounded-2xl shadow-xl border-4 border-[#f27a21] mx-auto w-48 h-48 flex flex-col items-center justify-center relative overflow-hidden">
+                      {/* Generates a neat geometric canvas matrix imitating high-end UPI code */}
+                      <div className="grid grid-cols-6 gap-1 w-full h-full opacity-90">
+                        {Array.from({ length: 36 }).map((_, i) => {
+                          const isCorner = i === 0 || i === 5 || i === 30 || i === 35 || i === 1 || i === 4 || i === 31 || i === 34 || i === 6 || i === 11 || i === 24 || i === 29;
+                          const isSpecialRand = (i * 17) % 3 === 0;
+                          return (
+                            <div
+                              key={i}
+                              className={`rounded-[2px] transition-colors ${isCorner
+                                  ? "bg-[#1b2e3c]"
+                                  : isSpecialRand
+                                    ? "bg-[#f27a21]"
+                                    : "bg-gray-100"
+                                }`}
+                            ></div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Centered micro brand logo icon */}
+                      <div className="absolute inset-0 m-auto w-10 h-10 bg-[#1b2e3c] rounded-lg border-2 border-white flex items-center justify-center font-bold text-[10px] tracking-tighter text-white">
+                        UY
+                      </div>
                     </div>
 
                     <div className="mt-5 space-y-1 block text-center font-mono">
@@ -254,7 +311,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
         {currentView === "contact" && (
           <div className="space-y-8 animate-fadeIn">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-              
+
               {/* Left Column info - 5 Columns */}
               <div className="lg:col-span-5 bg-[#1b2e3c] text-white p-8 md:p-10 rounded-3xl flex flex-col justify-between relative overflow-hidden">
                 <div className="space-y-6">
@@ -314,7 +371,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
               {/* Right Column Form - 7 Columns */}
               <div className="lg:col-span-7 bg-white p-6 md:p-10 rounded-3xl border border-gray-150 shadow-sm">
-                
+
                 {contactSubmitted ? (
                   <div className="h-full flex flex-col items-center justify-center text-center py-12 animate-fadeIn space-y-4">
                     <div className="bg-emerald-50 text-emerald-500 p-4 rounded-full border border-emerald-100">
@@ -331,7 +388,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                 ) : (
                   <form onSubmit={handleContactSubmit} className="space-y-5">
                     <h3 className="font-sans font-black text-[#1b2e3c] text-lg uppercase tracking-tight">Voyage Intake Questionnaire</h3>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div>
@@ -432,7 +489,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
             </div>
 
             <div className="space-y-8 text-[#1b2e3c]/90 text-xs leading-relaxed font-sans font-medium border-t border-gray-100 pt-8">
-              
+
               <div className="space-y-3">
                 <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
                   <FileCheck className="w-4 h-4 text-[#f27a21]" />
@@ -566,7 +623,6 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
             </div>
           </div>
         )}
-
         {/* 5. REFUND POLICY PAGE */}
         {currentView === "refund" && (
           <div className="bg-white rounded-3xl border border-gray-150 shadow-sm p-6 md:p-10 animate-fadeIn space-y-8 select-text">
@@ -581,7 +637,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
             </div>
 
             <div className="space-y-8 text-[#1b2e3c]/90 text-xs leading-relaxed font-sans font-medium border-t border-gray-100 pt-8">
-              
+
               <div className="space-y-3">
                 <h3 className="font-bold text-sm text-[#1b2e3c] uppercase tracking-wider flex items-center gap-1.5">
                   <ShieldAlert className="w-4 h-4 text-[#f27a21]" />

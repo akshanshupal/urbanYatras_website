@@ -56,7 +56,7 @@ export default function Header({
                 URBAN
               </span>
               <span className="font-sans font-black text-base sm:text-lg tracking-widest uppercase text-[#f27a21]">
-                YATRA
+                YATRAS
               </span>
             </div>
             <span className="text-[8px] sm:text-[9px] font-mono tracking-widest uppercase text-gray-400 block -mt-1 font-semibold">

@@ -24,8 +24,9 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
   const [additionalRequests, setAdditionalRequests] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!destination.trim()) {
       setErrorMsg("Please specify an Indian destination you want to explore.");
@@ -45,6 +46,47 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
     }
 
     setErrorMsg("");
+
+    const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:1333").replace(/\/+$/, "");
+    const pageUrl = window.location.href;
+    const url = new URL(pageUrl);
+    const meta = {
+      referrer: document.referrer || "",
+      userAgent: navigator.userAgent || "",
+      utm: Object.fromEntries(url.searchParams.entries()),
+    };
+
+    try {
+      setIsSubmitting(true);
+      const response = await fetch(`${apiBase}/api/enquiry`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          mobile: mobile.trim(),
+          destination: destination.trim(),
+          travelDate,
+          days: duration,
+          adults,
+          kids,
+          message: additionalRequests.trim(),
+          source: "hero",
+          pageUrl,
+          meta,
+        }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        throw new Error(text || "Failed to submit enquiry");
+      }
+    } catch (err) {
+      console.error("Enquiry submit error:", err);
+      setErrorMsg("Unable to submit enquiry right now. Please try again.");
+      return;
+    } finally {
+      setIsSubmitting(false);
+    }
 
     // Package the enquiry to localStorage to match the application database
     const newEnquiry = {
@@ -317,7 +359,8 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
                 <button
                   type="submit"
                   id="submit-hero-enquiry-btn"
-                  className="w-full sm:w-auto bg-[#f27a21] hover:bg-[#e06512] text-white font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-2xl hover:scale-[1.01] transition-all shadow-xl shadow-orange-500/10 flex items-center justify-center space-x-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto bg-[#f27a21] hover:bg-[#e06512] disabled:opacity-60 disabled:cursor-not-allowed text-white font-black text-xs uppercase tracking-wider px-8 py-3.5 rounded-2xl hover:scale-[1.01] transition-all shadow-xl shadow-orange-500/10 flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   <span>Build Custom package Plan</span>
                 </button>

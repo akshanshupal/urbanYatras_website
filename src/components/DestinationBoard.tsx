@@ -32,6 +32,7 @@ export default function DestinationBoard({
   const [enquiryAdults, setEnquiryAdults] = useState(2);
   const [enquiryKids, setEnquiryKids] = useState(0);
   const [isEnquirySubmitted, setIsEnquirySubmitted] = useState(false);
+  const [isEnquirySubmitting, setIsEnquirySubmitting] = useState(false);
 
   const categories = [
     { id: "all", label: "All Experiences" },
@@ -55,36 +56,55 @@ export default function DestinationBoard({
     setEnquiryKids(0);
   };
 
-  const handleEnquirySubmit = (e: React.FormEvent) => {
+  const handleEnquirySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!enquiryName || !enquiryMobile || !enquiryDate) {
       alert("Please enter all required fields including Name, Mobile, and Date.");
       return;
     }
 
-    // Capture inquiry details to localStorage
-    const newEnquiry = {
-      id: Date.now().toString(),
-      destination: activeDest?.name,
-      fullName: enquiryName,
-      mobile: enquiryMobile,
-      travelDate: enquiryDate,
-      days: enquiryDays,
-      adults: enquiryAdults,
-      kids: enquiryKids,
-      timestamp: new Date().toISOString()
-    };
-
     try {
-      const existing = localStorage.getItem("urban_enquiries");
-      const list = existing ? JSON.parse(existing) : [];
-      list.push(newEnquiry);
-      localStorage.setItem("urban_enquiries", JSON.stringify(list));
-    } catch (err) {
-      console.error("Local storage error:", err);
-    }
+      setIsEnquirySubmitting(true);
+      const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:1333").replace(/\/+$/, "");
+      const pageUrl = window.location.href;
+      const url = new URL(pageUrl);
+      const meta = {
+        referrer: document.referrer || "",
+        userAgent: navigator.userAgent || "",
+        utm: Object.fromEntries(url.searchParams.entries()),
+        destinationId: activeDest?.id || "",
+        destinationCategory: activeDest?.category || "",
+      };
 
-    setIsEnquirySubmitted(true);
+      const response = await fetch(`${apiBase}/api/enquiry`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          fullName: enquiryName.trim(),
+          mobile: enquiryMobile.trim(),
+          travelDate: enquiryDate,
+          days: enquiryDays,
+          adults: enquiryAdults,
+          kids: enquiryKids,
+          destination: activeDest?.name || "",
+          source: "destination-board",
+          pageUrl,
+          meta,
+        }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        throw new Error(text || "Failed to submit enquiry");
+      }
+
+      setIsEnquirySubmitted(true);
+    } catch (err) {
+      console.error("Enquiry submit error:", err);
+      alert("Unable to submit enquiry right now. Please try again.");
+    } finally {
+      setIsEnquirySubmitting(false);
+    }
   };
 
   const filteredDestinations = CURATED_DESTINATIONS.filter((dest) => {

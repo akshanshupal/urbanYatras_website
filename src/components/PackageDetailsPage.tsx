@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowLeft, Clock, MapPin, Star, Check, Compass, Sparkles, CheckCircle2, Phone, ShieldCheck, Heart, Share2 } from "lucide-react";
+import { ArrowLeft, Clock, MapPin, Star, Calendar, Check, Compass, Sparkles, CheckCircle2, Phone, ShieldCheck, Heart, Share2 } from "lucide-react";
 import { Destination } from "../types";
 import { siteConfig } from "@/lib/site";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -27,40 +27,63 @@ export default function PackageDetailsPage({
   const [enquiryMobile, setEnquiryMobile] = useState("");
   const [enquiryNotes, setEnquiryNotes] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     // Set top of page
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [packageData]);
 
-  const handleEnquirySubmit = (e: React.FormEvent) => {
+  const handleEnquirySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!enquiryName.trim() || !enquiryMobile.trim()) {
       alert("Please enter your name and contact mobile number.");
       return;
     }
 
-    const newEnquiry = {
-      id: Date.now().toString(),
-      destination: packageData.name,
-      fullName: enquiryName.trim(),
-      mobile: enquiryMobile.trim(),
-      details: enquiryNotes.trim(),
-      timestamp: new Date().toISOString()
-    };
-
     try {
-      const existing = localStorage.getItem("urban_enquiries");
-      const list = existing ? JSON.parse(existing) : [];
-      list.push(newEnquiry);
-      localStorage.setItem("urban_enquiries", JSON.stringify(list));
-    } catch (err) {
-      console.error("Local storage error:", err);
-    }
+      setIsSubmitting(true);
+      const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:1333").replace(/\/+$/, "");
+      const pageUrl = window.location.href;
+      const url = new URL(pageUrl);
+      const meta = {
+        referrer: document.referrer || "",
+        userAgent: navigator.userAgent || "",
+        utm: Object.fromEntries(url.searchParams.entries()),
+        destinationId: packageData.id,
+        destinationCategory: packageData.category,
+      };
 
-    setIsSubmitted(true);
+      const response = await fetch(`${apiBase}/api/enquiry`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          fullName: enquiryName.trim(),
+          mobile: enquiryMobile.trim(),
+          message: enquiryNotes.trim(),
+          destination: packageData.name,
+          packageName: packageData.name,
+          source: "package-details",
+          pageUrl,
+          meta,
+        }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        throw new Error(text || "Failed to submit enquiry");
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Enquiry submit error:", err);
+      alert("Unable to submit enquiry right now. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  const currentYear = new Date().getFullYear();
   const isFavorited = favorites.includes(packageData.id);
 
   return (
@@ -260,6 +283,10 @@ export default function PackageDetailsPage({
                 "Local Bazaars & Sunset Return"
               ]).map((loc, idx) => {
                 // Parse city name vs subtitle
+                const parts = loc.split(" ");
+                const title = parts[0] + " " + (parts[1] || "");
+                const suffix = loc.slice(title.length);
+
                 return (
                   <div key={idx} className="relative text-left">
                     {/* Floating map spot icon indicator */}
