@@ -47,7 +47,7 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
 
     setErrorMsg("");
 
-    const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:1333").replace(/\/+$/, "");
+    const apiBase = (process.env.NEXT_PUBLIC_ENQUIRY_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.urbanyatras.in").replace(/\/+$/, "");
     const pageUrl = window.location.href;
     const url = new URL(pageUrl);
     const meta = {
