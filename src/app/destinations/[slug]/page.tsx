@@ -30,17 +30,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${destination.name} Tour Package`,
     description: `${destination.description} Explore highlights, best time to visit, package details, and enquiry options with ${siteConfig.name}.`,
+    keywords: [
+      destination.name,
+      `${destination.name} tour package`,
+      `${destination.name} itinerary`,
+      `${destination.name} travel package`,
+      `${destination.category} destinations in India`,
+    ],
+    category: "travel",
+    referrer: "origin-when-cross-origin",
     alternates: {
-      canonical: `/destinations/${destination.id}`,
+      canonical: `${siteConfig.domain}/destinations/${destination.id}`,
     },
     openGraph: {
       title: `${destination.name} Tour Package | ${siteConfig.name}`,
       description: destination.description,
-      url: `/destinations/${destination.id}`,
-      type: "article",
+      url: `${siteConfig.domain}/destinations/${destination.id}`,
+      type: "website",
       images: [
         {
-          url: destination.image,
+          url: new URL(destination.image, siteConfig.domain).toString(),
           alt: destination.name,
         },
       ],

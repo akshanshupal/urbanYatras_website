@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Urban Yatras Icon</title>
+  <desc id="desc">UY monogram for Urban Yatras</desc>
+  <rect width="64" height="64" rx="16" fill="#1b2e3c"/>
+  <path d="M14 18h8v16c0 5.523 4.477 10 10 10s10-4.477 10-10V18h8v16c0 9.941-8.059 18-18 18S14 43.941 14 34V18Z" fill="#ffffff"/>
+  <path d="M29 18h8l-1 13 10-13h10L38 39v13h-8V39L12 18h10l10 13-1-13Z" fill="#f27a21"/>
+</svg>

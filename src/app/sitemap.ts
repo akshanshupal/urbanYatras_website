@@ -3,7 +3,7 @@ import { CURATED_DESTINATIONS } from "@/data";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/contact", "/payment", "/terms"].map((path) => ({
+  const staticRoutes = ["", "/about", "/contact", "/payment", "/refund", "/terms"].map((path) => ({
     url: `${siteConfig.domain}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,

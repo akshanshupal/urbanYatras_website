@@ -2,13 +2,21 @@ export const siteConfig = {
   name: "Urban Yatras",
   shortName: "Urban Yatras",
   domain: "https://www.urbanyatras.in",
+  locale: "en_IN",
   description:
     "Urban Yatras offers curated India tour packages, custom travel planning, verified stays, and route-based holiday experiences across mountains, beaches, heritage cities, wildlife circuits, and spiritual destinations.",
+  tagline: "Explore More. Live More.",
   phone: "8860030886",
   displayPhone: "+91 8860030886",
   email: "support@urbanyatras.in",
+  companyLegalName: "Urban Yatras",
   address:
     "UNIT NO. B-UG06, TOWER-3, NX-ONE, SECTOR - TECHZONE-4, GREATER NOIDA WEST, G.B.NAGAR, U.P.- 201306",
+  city: "Greater Noida West",
+  state: "Uttar Pradesh",
+  country: "India",
+  postalCode: "201306",
+  socialImage: "/og-image.svg",
   bank: {
     accountName: "Urban Yatras",
     accountNumber: "4049111673",

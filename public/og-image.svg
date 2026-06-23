@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Urban Yatras Social Image</title>
+  <desc id="desc">Social preview image for Urban Yatras India tour packages</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12212c"/>
+      <stop offset="100%" stop-color="#1b2e3c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f27a21"/>
+      <stop offset="100%" stop-color="#f5b457"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="100" r="180" fill="#f27a21" opacity="0.12"/>
+  <circle cx="180" cy="520" r="220" fill="#f27a21" opacity="0.08"/>
+  <rect x="80" y="80" width="140" height="140" rx="32" fill="#ffffff" opacity="0.08"/>
+  <text x="150" y="172" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" fill="#ffffff">UY</text>
+  <text x="80" y="320" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" fill="#ffffff">Urban Yatras</text>
+  <text x="80" y="392" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600" fill="url(#accent)">Curated India Tour Packages</text>
+  <text x="80" y="450" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#d6dde5">Custom travel planning for mountains, beaches, heritage</text>
+  <text x="80" y="490" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#d6dde5">cities, spiritual circuits, and wildlife holidays.</text>
+  <text x="80" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#f5b457">Explore More. Live More.</text>
+</svg>

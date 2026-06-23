@@ -7,44 +7,75 @@ import "../index.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
+  applicationName: siteConfig.name,
   title: {
     default: `${siteConfig.name} | Curated India Tour Packages`,
     template: `%s | ${siteConfig.name}`,
   },
-  icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
-  },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "travel",
+  referrer: "origin-when-cross-origin",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: `${siteConfig.name} | Curated India Tour Packages`,
     description: siteConfig.description,
     url: siteConfig.domain,
     siteName: siteConfig.name,
     type: "website",
-    locale: "en_IN",
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: siteConfig.socialImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} India tour packages`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Curated India Tour Packages`,
     description: siteConfig.description,
+    images: [siteConfig.socialImage],
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  name: siteConfig.name,
+  name: siteConfig.companyLegalName,
   url: siteConfig.domain,
   email: siteConfig.email,
   telephone: siteConfig.displayPhone,
   address: {
     "@type": "PostalAddress",
     streetAddress: siteConfig.address,
+    addressLocality: siteConfig.city,
+    addressRegion: siteConfig.state,
+    postalCode: siteConfig.postalCode,
     addressCountry: "IN",
   },
+  image: new URL(siteConfig.socialImage, siteConfig.domain).toString(),
+  logo: new URL("/favicon.png", siteConfig.domain).toString(),
+  areaServed: "India",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.domain,
+  inLanguage: "en-IN",
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -58,6 +89,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <SiteHeader />
         <main>{children}</main>
