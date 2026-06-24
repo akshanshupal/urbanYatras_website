@@ -404,7 +404,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                           required
                           value={fullname}
                           onChange={(e) => setFullname(e.target.value)}
-                          placeholder="e.g. Advika Sharma"
+                          placeholder="e.g. Traveller Name"
                           className="w-full bg-slate-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-1 focus:ring-[#f27a21] text-slate-800 font-bold"
                         />
                       </div>
@@ -417,7 +417,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="e.g. advika@domain.com"
+                          placeholder="Email Address"
                           className="w-full bg-slate-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-1 focus:ring-[#f27a21] text-slate-800 font-bold"
                         />
                       </div>
@@ -431,7 +431,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                           type="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="e.g. +91 98765 43210"
+                          placeholder="e.g. +91 ***** *****"
                           className="w-full bg-slate-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-1 focus:ring-[#f27a21] text-slate-800 font-bold"
                         />
                       </div>
