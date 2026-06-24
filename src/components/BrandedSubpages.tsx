@@ -106,10 +106,10 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
               <div className="max-w-3xl">
                 <span className="bg-[#f27a21] text-white text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full">
-                  Who We Are
+                  Urban Yatras Powered by Hospitality Group of Hotels
                 </span>
                 <h1 className="font-sans font-black text-3xl md:text-5xl tracking-tight mt-4 leading-tight">
-                  Urban Yatras: Currating the Soul of India.
+                  Currating the Soul of India.
                 </h1>
                 <p className="text-gray-300 text-sm md:text-base mt-4 leading-relaxed font-sans">
                   Founded with a singular passion to showcase the unparalleled majesty of India, Urban Yatras delivers premium hand-curated experiences. From the misty heights of Kashmir to the tranquil riverine backwaters of Kerala, we unlock authentic cultural journeys integrated seamlessly with predictive smart technology.
@@ -233,11 +233,16 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Bank Branch</span>
                       <span className="col-span-2 font-black text-slate-800">: {siteConfig.bank.branch}</span>
                     </div>
+                    <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
+                      <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">GST No.</span>
+                      <span className="col-span-2 font-black text-slate-800">: 09BFNPP8279R3ZW</span>
+                    </div>
 
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">UPI</span>
                       <span className="col-span-2 font-black text-emerald-600">: {siteConfig.bank.upi}</span>
                     </div>
+                  
                   </div>
 
                   {/* Transfer instruction guidelines */}
@@ -256,7 +261,8 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                 <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-[#1b2e3c] text-white rounded-3xl relative overflow-hidden">
                   <div className="relative z-10 text-center w-full max-w-[280px]">
                     <div className="flex items-center justify-center mx-auto mb-4 bg-white/10 p-2.5 rounded-full w-12 h-12 text-[#f27a21]">
-                      <QrCode className="w-6 h-6 animate-pulse" />
+                      {/* <QrCode className="w-6 h-6 animate-pulse" /> */}
+                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-06-24%20at%2012.25.29.png" alt="QR Code" className="w-6 h-6 animate-pulse" />
                     </div>
 
                     <h4 className="text-sm font-black uppercase tracking-widest mb-1 text-[#f27a21]">G-Pay / BHIM UPI Scan</h4>
@@ -264,8 +270,9 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
                     {/* Styled Mock QR Box with custom aesthetics */}
                     <div className="bg-white p-4 rounded-2xl shadow-xl border-4 border-[#f27a21] mx-auto w-48 h-48 flex flex-col items-center justify-center relative overflow-hidden">
-                      {/* Generates a neat geometric canvas matrix imitating high-end UPI code */}
-                      <div className="grid grid-cols-6 gap-1 w-full h-full opacity-90">
+                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-06-24%20at%2012.25.29.png" alt="QR Code"/>
+
+                      {/* <div className="grid grid-cols-6 gap-1 w-full h-full opacity-90">
                         {Array.from({ length: 36 }).map((_, i) => {
                           const isCorner = i === 0 || i === 5 || i === 30 || i === 35 || i === 1 || i === 4 || i === 31 || i === 34 || i === 6 || i === 11 || i === 24 || i === 29;
                           const isSpecialRand = (i * 17) % 3 === 0;
@@ -283,10 +290,9 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                         })}
                       </div>
 
-                      {/* Centered micro brand logo icon */}
                       <div className="absolute inset-0 m-auto w-10 h-10 bg-[#1b2e3c] rounded-lg border-2 border-white flex items-center justify-center font-bold text-[10px] tracking-tighter text-white">
                         UY
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="mt-5 space-y-1 block text-center font-mono">
@@ -496,7 +502,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                   <span>1. Booking Process</span>
                 </h3>
                 <p>
-                  Welcome to **Urban Yatras**. By booking any tour, package, transport, or travel-related service with us, you agree to these Terms & Conditions.
+                  Welcome to **Urban Yatras Powered by Hospitality Group of Hotels**. By booking any tour, package, transport, or travel-related service with us, you agree to these Terms & Conditions.
                 </p>
                 <p>
                   Upon receiving your travel inquiry or booking request, our team will assist you in creating a personalized and comfortable travel experience based on your preferences, budget, and interests. Tour plans, quotations, and booking confirmations are generally shared within 24 to 72 hours, depending on the complexity of the itinerary and service availability.

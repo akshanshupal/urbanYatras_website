@@ -140,10 +140,11 @@ export default function Hero({ onGenerate, loading }: HeroProps) {
         {/* Quality Banner Badge */}
         <div className="inline-flex items-center space-x-1.5 bg-white/5 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wide text-orange-300 border border-white/10 mb-6 uppercase">
           <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
-          <span>Bespoke Indian Tour Consultations</span>
+          <span>Powered by Hospitality Group of Hotels</span>
         </div>
 
         {/* Headline */}
+  
         <h1 className="font-sans font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-white max-w-4xl leading-[1.1] mb-6">
           Uncompromised <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f27a21] via-orange-300 to-amber-200">Indian Journeys</span> Tailored for Your Family.
         </h1>

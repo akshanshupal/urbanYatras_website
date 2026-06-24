@@ -24,7 +24,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="text-gray-500 font-mono text-[9px] font-bold block text-center">
-          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          &copy; {new Date().getFullYear()} {siteConfig.name} Powered by Hospitality Group of Hotels. All rights reserved.
         </div>
       </div>
     </footer>
