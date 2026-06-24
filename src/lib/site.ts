@@ -23,7 +23,7 @@ export const siteConfig = {
     ifsc: "KKBK0000154",
     mmid: "9485203",
     branch: "Sector 51",
-    upi: "hospitalitygroup@kotak",
+    upi: "hospitalitygroup13@kotak",
   },
   keywords: [
     "Urban Yatras",
