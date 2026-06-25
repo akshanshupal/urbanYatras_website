@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   category: "travel",
   referrer: "origin-when-cross-origin",
   icons: {
-    icon: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
-    shortcut: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
-    apple: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
+    icon: "https://travelImg.b-cdn.net/urbanYatras/urban_yatra_favicon.png",
+    shortcut: "https://travelImg.b-cdn.net/urbanYatras/urban_yatra_favicon.png",
+    apple: "https://travelImg.b-cdn.net/urbanYatras/urban_yatra_favicon.png",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
