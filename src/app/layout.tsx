@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   category: "travel",
   referrer: "origin-when-cross-origin",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
+    shortcut: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
+    apple: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
@@ -66,7 +66,7 @@ const organizationSchema = {
     addressCountry: "IN",
   },
   image: new URL(siteConfig.socialImage, siteConfig.domain).toString(),
-  logo: new URL("/favicon.png", siteConfig.domain).toString(),
+  logo: "https://travelImg.b-cdn.net/urbanYatras/logo.png",
   areaServed: "India",
 };
 
