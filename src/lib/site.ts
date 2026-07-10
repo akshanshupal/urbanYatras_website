@@ -41,12 +41,14 @@ export const siteConfig = {
 export const mainNav = [
   { href: "/", label: "Indian Voyages" },
   { href: "/about", label: "Our Story" },
+  { href: "/blog", label: "Travel Blog" },
   { href: "/payment", label: "Payments" },
   { href: "/contact", label: "Contact" },
 ];
 export const footerNav = [
   { href: "/", label: "Indian Voyages" },
   { href: "/about", label: "Our Story" },
+  { href: "/blog", label: "Travel Blog" },
   { href: "/payment", label: "Payments" },
   { href: "/contact", label: "Contact" },
   { href: "/terms", label: "Terms" },

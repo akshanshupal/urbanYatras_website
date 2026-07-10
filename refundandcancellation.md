@@ -49,3 +49,4 @@ Please note that the time taken for the refunded amount to reflect in your accou
 Refunds, if any, will be processed through the original mode of payment.
 Convenience fees, payment gateway charges, and taxes (if applicable) may be non-refundable.
 Urban Yatras reserves the right to amend this policy at any time without prior notice.
+In case of cancellation, delay, or modification of the trip due to natural disasters, adverse weather, government restrictions, or any other force majeure event beyond the Company's control Company shall not be liable for any refund or compensation.
