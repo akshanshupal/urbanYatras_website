@@ -14,9 +14,9 @@ const FEATURES = [
     text: "Every hotel and homestay is physically audited by our local teams before you book.",
   },
   {
-    icon: BadgeIndianRupee,
-    title: "Transparent Pricing",
-    text: "No hidden charges. Clear, itemised quotes in Indian Rupees for every package.",
+icon: BadgeIndianRupee,
+title: "Flexible Pricing",
+text: "Customize your trip with packages that match your budget, preferences, and travel needs.",
   },
   {
     icon: Users2,
