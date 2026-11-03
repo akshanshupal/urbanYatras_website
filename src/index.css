@@ -1,5 +1,6 @@
 @config "../tailwind.config.cjs";
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -7,5 +8,11 @@
   --color-brand-navy: #1b2e3c;
   --color-brand-navy-light: #2b4254;
   --color-brand-charcoal: #12212c;
+  --color-diwali-gold: #ffc145;
+  --color-diwali-orange: #f27a21;
+  --color-diwali-maroon: #8e2d5b;
+  --color-diwali-night: #221238;
+  --color-diwali-glow: #ffe082;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Yeseva One", Georgia, "Times New Roman", serif;
 }

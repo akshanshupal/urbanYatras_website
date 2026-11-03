@@ -3,9 +3,9 @@ import { footerNav, siteConfig } from "@/lib/site";
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#12212c] border-t border-slate-800 text-slate-400 py-12 text-xs">
+    <footer className="bg-[#221238] border-t border-[#FFC145]/20 text-slate-300 py-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 space-y-6">
-        <div className="flex flex-wrap justify-center gap-6 text-gray-300 font-bold uppercase tracking-wider text-[11px]">
+        <div className="flex flex-wrap justify-center gap-6 text-[#FFC145] font-bold uppercase tracking-wider text-[11px]">
           {footerNav.map((item) => (
             <Link
               key={item.href}

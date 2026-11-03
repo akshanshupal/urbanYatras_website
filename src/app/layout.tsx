@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import DiwaliEffects from "@/components/DiwaliEffects";
+import DiwaliOffer from "@/components/DiwaliOffer";
 import { siteConfig } from "@/lib/site";
 import "../index.css";
 
@@ -103,6 +105,8 @@ gtag('config', 'G-F0VT2V2ZZ7');`}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <SiteHeader />
+        <DiwaliEffects />
+        <DiwaliOffer />
         <main>{children}</main>
         <SiteFooter />
       </body>
