@@ -211,17 +211,17 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Bank Institution</span>
-                      <span className="col-span-2 font-black text-slate-800">: Kotak Mahindra Bank</span>
+                      <span className="col-span-2 font-black text-slate-800">:SBI Bank</span>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Account Number</span>
-                      <span className="col-span-2 font-mono font-black text-[#f27a21]">: {siteConfig.bank.accountNumber}</span>
+                      <span className="col-span-2 font-mono font-black text-[#f27a21]">:{siteConfig.bank.accountNumber}</span>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">RTGS / IFSC Code</span>
-                      <span className="col-span-2 font-mono font-black text-slate-800">: {siteConfig.bank.ifsc}</span>
+                      <span className="col-span-2 font-mono font-black text-slate-800">:{siteConfig.bank.ifsc}</span>
                     </div>
 
                     {/* <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
@@ -231,11 +231,11 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Bank Branch</span>
-                      <span className="col-span-2 font-black text-slate-800">: {siteConfig.bank.branch}</span>
+                      <span className="col-span-2 font-black text-slate-800">:{siteConfig.bank.branch}</span>
                     </div>
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">GST No.</span>
-                      <span className="col-span-2 font-black text-slate-800">: 09BFNPP8279R3ZW</span>
+                      <span className="col-span-2 font-black text-slate-800">:09BFNPP8279R3ZW</span>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 text-xs">
