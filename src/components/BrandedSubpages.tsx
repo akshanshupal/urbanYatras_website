@@ -224,10 +224,10 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                       <span className="col-span-2 font-mono font-black text-slate-800">: {siteConfig.bank.ifsc}</span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
+                    {/* <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">MMID</span>
                       <span className="col-span-2 font-mono font-black text-slate-800">: {siteConfig.bank.mmid}</span>
-                    </div>
+                    </div> */}
 
                     <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Bank Branch</span>
