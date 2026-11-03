@@ -233,10 +233,10 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Bank Branch</span>
                       <span className="col-span-2 font-black text-slate-800">:{siteConfig.bank.branch}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
+                    {/* <div className="grid grid-cols-3 gap-2 border-b border-gray-200/60 pb-3 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">GST No.</span>
                       <span className="col-span-2 font-black text-slate-800">:09BFNPP8279R3ZW</span>
-                    </div>
+                    </div> */}
 
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">UPI</span>
