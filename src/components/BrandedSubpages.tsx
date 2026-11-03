@@ -262,7 +262,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
                   <div className="relative z-10 text-center w-full max-w-[280px]">
                     <div className="flex items-center justify-center mx-auto mb-4 bg-white/10 p-2.5 rounded-full w-12 h-12 text-[#f27a21]">
                       {/* <QrCode className="w-6 h-6 animate-pulse" /> */}
-                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-06-24%20at%2012.25.29.png" alt="QR Code" className="w-6 h-6 animate-pulse" />
+                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-11-03%20at%2015.58.35.png" alt="QR Code" className="w-6 h-6 animate-pulse" />
                     </div>
 
                     <h4 className="text-sm font-black uppercase tracking-widest mb-1 text-[#f27a21]">G-Pay / BHIM UPI Scan</h4>
@@ -270,7 +270,7 @@ export default function BrandedSubpages({ currentView }: SubpageProps) {
 
                     {/* Styled Mock QR Box with custom aesthetics */}
                     <div className="bg-white p-4 rounded-2xl shadow-xl border-4 border-[#f27a21] mx-auto w-48 h-48 flex flex-col items-center justify-center relative overflow-hidden">
-                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-06-24%20at%2012.25.29.png" alt="QR Code"/>
+                      <img src="https://travelImg.b-cdn.net/urbanYatras/Screenshot%202026-11-03%20at%2015.58.35.png" alt="QR Code"/>
 
                       {/* <div className="grid grid-cols-6 gap-1 w-full h-full opacity-90">
                         {Array.from({ length: 36 }).map((_, i) => {

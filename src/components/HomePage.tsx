@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { BadgeIndianRupee, MapPinned, ShieldCheck, Sparkles, Users2, ArrowRight } from "lucide-react";
+import { MapPinned, PhoneCall, ShieldCheck, Sparkles, Users2, ArrowRight } from "lucide-react";
 import DestinationBoard from "@/components/DestinationBoard";
 import HeroSlider from "@/components/HeroSlider";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -14,9 +14,9 @@ const FEATURES = [
     text: "Every hotel and homestay is physically audited by our local teams before you book.",
   },
   {
-icon: BadgeIndianRupee,
-title: "Flexible Pricing",
-text: "Customize your trip with packages that match your budget, preferences, and travel needs.",
+    icon: PhoneCall,
+    title: "24×7 Trip Support",
+    text: "A dedicated travel manager stays reachable on call and WhatsApp throughout your journey.",
   },
   {
     icon: Users2,
